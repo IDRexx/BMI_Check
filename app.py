@@ -34,5 +34,5 @@ if st.button("Hitung BMI"):
 
     # Prediksi dengan model (jika model menggunakan input seperti berat dan tinggi)
     # Pastikan input sesuai dengan yang digunakan oleh model saat training
-    prediction = model.predict([[Weight, Height]])
-    st.write(f"**Prediksi dari model: {prediction}**")
+    #prediction = model.predict([[Weight, Height]])
+    #st.write(f"**Prediksi dari model: {prediction}**")
