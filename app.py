@@ -1,6 +1,5 @@
 import streamlit as st
-import joblib
-
+import pickle
 
 # Function untuk menghitung BMI dan kategorinya
 def hitung_bmi(Weight, Height):
@@ -16,8 +15,9 @@ def hitung_bmi(Weight, Height):
         kategori = "Obese"
     return bmi, kategori
 
-# Load model joblib (gantilah 'model.pkl' dengan nama file model joblib Anda)
-model = joblib.load('model.pkl')
+# Memuat model dengan pickle
+with open('model.pkl', 'rb') as file:
+    model = pickle.load(file)
 
 # UI Streamlit
 st.title("Aplikasi Penghitung BMI dengan Model Machine Learning")
@@ -32,7 +32,7 @@ if st.button("Hitung BMI"):
     st.write(f"**BMI Anda adalah: {bmi:.2f}**")
     st.write(f"**Kategori: {kategori}**")
 
-    # Prediksi dengan model joblib (jika model menggunakan input seperti berat dan tinggi)
+    # Prediksi dengan model (jika model menggunakan input seperti berat dan tinggi)
     # Pastikan input sesuai dengan yang digunakan oleh model saat training
     prediction = model.predict([[Weight, Height]])
     st.write(f"**Prediksi dari model: {prediction}**")
