@@ -1,5 +1,4 @@
 import streamlit as st
-import joblib
 
 # Function untuk menghitung BMI dan kategorinya
 def hitung_bmi(Weight, Height):
